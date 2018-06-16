@@ -1,0 +1,40 @@
+#! python3
+#Collatz - Collatz number simulator: returns 1 for any given integer, as well as the number of steps taken.
+
+number = ''
+steps = 0
+
+def inputnb():
+    global number
+    while number == '':
+        try:
+            number = int(input('Please enter an integer: '))
+        except ValueError:
+            continue
+
+def inputcheck():
+    global number
+    while number <= 0:
+        try:
+            number = int(input('Please enter a positive integer: '))
+        except ValueError:
+            continue
+
+def collatz():
+    global number
+    if number % 2 == 0:
+        print(number // 2)
+        number = number // 2
+    elif number % 2 == 1:
+        print(3 * number + 1)
+        number = 3 * number +1
+
+inputnb()
+inputcheck()
+
+while number != 1:
+    collatz()
+    steps = steps + 1
+
+print('It took ' + str(steps) + ' step(s).')
+input('Press enter to exit.')
