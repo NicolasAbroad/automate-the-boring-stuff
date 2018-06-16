@@ -1,0 +1,17 @@
+#! python3
+# Simple regex strip function - strips text on both sides of string
+
+import re
+
+def regex_strip(text, strip_content):
+    if strip_content == '':
+        strip_left = re.sub(r'^\s*', '', text)                  # strip left side of spaces
+        strip_text = re.sub(r'\s*$', '', strip_left)            # strip right side of spaces
+        return strip_text
+    elif strip_content != '':
+        strip_left = re.sub(strip_content, '', text)            # strip left side of entered characters (case sensitive)
+        strip_text = re.sub(strip_content, '', strip_left)      # strip right side of entered characters (case sensitive)
+        return strip_text
+
+print(regex_strip(input('Enter text to strip: '), input('Enter what you want to strip (enter for spaces): ')))
+input('Press enter to exit.')
