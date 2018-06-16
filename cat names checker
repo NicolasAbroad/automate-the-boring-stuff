@@ -1,0 +1,25 @@
+#!python 3
+# Cat names checker - enter cat names into list, then compare inputted name to list.
+
+cat_names = []
+
+while True:
+    print ('Enter name of cat ' + str(len(cat_names) + 1) +
+    ' (Or enter nothing to stop.); ')
+    name = input()
+    if name == '':
+        break
+    cat_names += [name]
+
+for s in range(len(cat_names)):
+    print(cat_names[s])
+
+def check(list): #Checks if name is present in list
+    name = input('Enter name to check if in list: ')
+    if name in list:
+        print(name + ' is in list.')
+    else:
+        print(name + ' is not in list.')
+
+check(cat_names)
+input('Press enter to exit.')
