@@ -1,0 +1,33 @@
+import random
+
+number = random.randint(1, 20)
+nb_guesses = 1
+print (number)
+print ('I am thinking of a number in between 1 and 20')
+print ('Take a guess')
+guess = ''
+
+while number != guess:
+    try:
+        guess = int(input())
+#        print ('Take another guess')
+        if abs(number - guess) > 0 and abs(number - guess) <= 3:
+            print ('Boiling hot!')
+            nb_guesses = nb_guesses + 1
+        elif abs(number - guess) > 3 and abs(number - guess) <= 7:
+            print ('Warm')
+            nb_guesses = nb_guesses + 1
+        elif abs(number - guess) > 7:
+            print ('Cold')
+            nb_guesses = nb_guesses + 1
+        elif number == guess:
+            break
+    except ValueError:
+        print ('That isn''t a number silly!')
+
+if nb_guesses == 1:
+    print ('Congratulations! It took you', str(nb_guesses),  'guess.')
+else:
+    print ('Congratulations! It took you', str(nb_guesses),  'guesses.')
+
+input('Press enter to exit.')
